@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "test"
+version = "0.1.0"
+description = ""
+authors = ["Timur <81976283+mym1chelle@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.11.0"
+django = "^4.1.6"
+djangorestframework = "^3.14.0"
+dj-database-url = "^1.2.0"
+python-dotenv = "^0.21.1"
+djoser = "^2.1.0"
+django-filter = "^22.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
