@@ -8,7 +8,7 @@ class MyFilter(f.FilterSet):
     min_date = f.DateFilter(field_name='start_date', lookup_expr='gte')
     max_date = f.DateFilter(field_name='start_date', lookup_expr='lte')
     ex = f.ChoiceFilter(field_name='execution_status', choices=EX_STATUS)
-    status = f.ChoiceFilter(label='status', choices=TASK_STATUS)
+    status = f.ChoiceFilter(field_name='status', choices=TASK_STATUS)
 
     class Meta:
         model = Task
