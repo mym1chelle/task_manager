@@ -42,21 +42,21 @@ class CloseTaskAPIView(APIView):
 
     def put(self, request, *args, **kwargs):
         pk = kwargs.get('pk')
-        new_task = CreateUpdateTaskSerializer(
-            data=request.data
-        )
         try:
             instance = Task.objects.get(id=pk)
         except:
             return Response({'errors': 'Object does not exists'})
 
-        serializer = UpdateTaskStatusSerializer(data=request.data, instance=instance)
+        serializer = UpdateTaskStatusSerializer(
+            data=request.data,
+            instance=instance
+        )
         serializer.is_valid(raise_exception=True)
         serializer.save()
         result = ShowTaskSerializer(instance)
         return Response(result.data)
 
 
-class UpdateTaskAPIView(generics.RetrieveUpdateDestroyAPIView):
+class UpdateDeleteTaskAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = CreateUpdateTaskSerializer
     queryset = Task.objects.all()

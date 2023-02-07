@@ -12,8 +12,16 @@ def validate_first_char(string: str):
 
 
 class Task(models.Model):
-    name = models.CharField(max_length=200, null=False, validators=[validate_first_char])
+    name = models.CharField(
+        max_length=200,
+        null=False,
+        validators=[validate_first_char]
+    )
     description = models.TextField()
     status = models.CharField(max_length=20, choices=TASK_STATUS)
     start_date = models.DateTimeField(auto_now_add=True)
-    execution_status = models.CharField(max_length=20, default='in_process', choices=EX_STATUS)
+    execution_status = models.CharField(
+        max_length=20,
+        default='in_process',
+        choices=EX_STATUS
+    )

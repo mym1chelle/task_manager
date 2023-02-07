@@ -11,9 +11,11 @@ django = "^4.1.6"
 djangorestframework = "^3.14.0"
 dj-database-url = "^1.2.0"
 python-dotenv = "^0.21.1"
-djoser = "^2.1.0"
 django-filter = "^22.1"
 
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
 
 [build-system]
 requires = ["poetry-core"]
