@@ -2,13 +2,13 @@ from rest_framework import generics
 from rest_framework.views import APIView
 import django_filters.rest_framework
 from rest_framework.response import Response
-from .serializers import (
+from test_api.my_api.serializers import (
     CreateUpdateTaskSerializer,
     ShowTaskSerializer,
     UpdateTaskStatusSerializer,
 )
-from .models import Task
-from .filters import MyFilter
+from test_api.my_api.models import Task
+from test_api.my_api.filters import MyFilter
 
 
 class TaskAPIView(generics.ListCreateAPIView):

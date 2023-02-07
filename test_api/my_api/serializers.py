@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Task
+from test_api.my_api.models import Task
 
 
 class CreateUpdateTaskSerializer(serializers.ModelSerializer):

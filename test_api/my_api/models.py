@@ -1,21 +1,18 @@
 from django.db import models
-from rest_framework.exceptions import APIException
-from .constants import PATTERN_NAME, TASK_STATUS, EX_STATUS
-
-
-def validate_first_char(string: str):
-    first_symbol = string[0]
-    if not PATTERN_NAME.match(first_symbol):
-        raise APIException(
-            detail=f'{first_symbol} is a special symbol'
-        )
+from django.core.validators import RegexValidator
+from test_api.my_api.constants import PATTERN_NAME, TASK_STATUS, EX_STATUS
 
 
 class Task(models.Model):
     name = models.CharField(
         max_length=200,
         null=False,
-        validators=[validate_first_char]
+        validators=[
+            RegexValidator(
+                regex=PATTERN_NAME,
+                message='first_symbol can`t be a special symbol'
+            )
+        ]
     )
     description = models.TextField()
     status = models.CharField(max_length=20, choices=TASK_STATUS)
