@@ -10,7 +10,7 @@ class Task(models.Model):
         validators=[
             RegexValidator(
                 regex=PATTERN_NAME,
-                message='first_symbol can`t be a special symbol'
+                message='first symbol can`t be a special symbol'
             )
         ]
     )
