@@ -8,13 +8,13 @@ from test_api.my_api.serializers import (
     UpdateTaskStatusSerializer,
 )
 from test_api.my_api.models import Task
-from test_api.my_api.filters import MyFilter
+from test_api.my_api.filters import TaskFilter
 
 
 class TaskAPIView(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    filterset_class = MyFilter
+    filterset_class = TaskFilter
     serializer_class = CreateUpdateTaskSerializer
 
     def list(self, request, *args, **kwargs):

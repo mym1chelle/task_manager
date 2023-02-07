@@ -3,7 +3,7 @@ from test_api.my_api.models import Task
 from test_api.my_api.constants import TASK_STATUS, EX_STATUS
 
 
-class MyFilter(f.FilterSet):
+class TaskFilter(f.FilterSet):
     task_name = f.CharFilter(field_name='name', lookup_expr='icontains')
     min_date = f.DateFilter(field_name='start_date', lookup_expr='gte')
     max_date = f.DateFilter(field_name='start_date', lookup_expr='lte')
