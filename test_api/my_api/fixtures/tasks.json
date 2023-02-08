@@ -1,0 +1,46 @@
+[
+{
+    "model": "my_api.task",
+    "pk": 1,
+    "fields": {
+        "name": "task_one",
+        "description": "description_one",
+        "status": "small",
+        "start_date": "2022-12-26T11:44:42.517Z",
+        "execution_status": "in_process"
+    }
+},
+{
+    "model": "my_api.task",
+    "pk": 2,
+    "fields": {
+        "name": "task_two",
+        "description": "description_two",
+        "status": "medium",
+        "start_date": "2022-12-26T11:44:42.517Z",
+        "execution_status": "in_process"
+    }
+},
+{
+    "model": "my_api.task",
+    "pk": 3,
+    "fields": {
+        "name": "task_three",
+        "description": "description_three",
+        "status": "important",
+        "start_date": "2022-12-26T11:44:42.517Z",
+        "execution_status": "completed"
+    }
+},
+{
+    "model": "my_api.task",
+    "pk": 4,
+    "fields": {
+        "name": "task_four",
+        "description": "description_four",
+        "status": "small",
+        "start_date": "2022-12-26T11:44:42.517Z",
+        "execution_status": "in_process"
+    }
+}
+]

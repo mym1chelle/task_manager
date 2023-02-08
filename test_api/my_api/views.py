@@ -35,7 +35,7 @@ class CloseTaskAPIView(APIView):
         pk = kwargs.get('pk')
         try:
             task = Task.objects.get(id=pk)
-        except:
+        except Task.DoesNotExist:
             return Response({'detail': 'Object does not exists'}, status=422)
         serializer = ShowTaskSerializer(task)
         return Response(serializer.data)
@@ -44,7 +44,7 @@ class CloseTaskAPIView(APIView):
         pk = kwargs.get('pk')
         try:
             instance = Task.objects.get(id=pk)
-        except:
+        except Task.DoesNotExist:
             return Response({'errors': 'Object does not exists'})
 
         serializer = UpdateTaskStatusSerializer(
