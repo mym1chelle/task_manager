@@ -1,6 +1,9 @@
 install:
 	poetry install
 
+start:
+	poetry run gunicorn -w 5 test_api.wsgi --log-file -
+
 dev:
 	poetry run python manage.py runserver
 
