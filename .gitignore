@@ -2,7 +2,8 @@
 .env
 db.sqlite3
 .idea/
-__pycache__/
 coverage.xml
 .coverage
 .DS_Store
+**/__pycache__
+**/.DS_Store
