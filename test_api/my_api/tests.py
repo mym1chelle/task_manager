@@ -133,7 +133,6 @@ class UserTestCase(TestCase):
         self.assertEqual(response.status_code, 500)
         self.assertEqual(error['detail'], 'object does not exists')
 
-
     def test_filter_by_names(self):
         """Filter the tasks by status"""
         filtered_by_name = f'{reverse("tasks")}?task_name=task_t'
