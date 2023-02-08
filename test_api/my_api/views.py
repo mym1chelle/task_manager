@@ -1,5 +1,6 @@
 from rest_framework import generics
 from rest_framework.views import APIView
+from rest_framework.exceptions import APIException
 import django_filters.rest_framework
 from rest_framework.response import Response
 from test_api.my_api.serializers import (
@@ -36,7 +37,9 @@ class CloseTaskAPIView(APIView):
         try:
             task = Task.objects.get(id=pk)
         except Task.DoesNotExist:
-            return Response({'detail': 'Object does not exists'}, status=422)
+            raise APIException(
+                detail='object does not exists'
+            )
         serializer = ShowTaskSerializer(task)
         return Response(serializer.data)
 
@@ -45,7 +48,9 @@ class CloseTaskAPIView(APIView):
         try:
             instance = Task.objects.get(id=pk)
         except Task.DoesNotExist:
-            return Response({'errors': 'Object does not exists'})
+            raise APIException(
+                detail='object does not exists'
+            )
 
         serializer = UpdateTaskStatusSerializer(
             data=request.data,

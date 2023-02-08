@@ -6,7 +6,7 @@ authors = ["Timur <81976283+mym1chelle@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.11.0"
+python = "3.11.1"
 django = "^4.1.6"
 djangorestframework = "^3.14.0"
 dj-database-url = "^1.2.0"

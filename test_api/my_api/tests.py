@@ -116,6 +116,24 @@ class UserTestCase(TestCase):
         closed_task = Task.objects.get(id=task1.id)
         self.assertEqual('completed', closed_task.execution_status)
 
+    def test_close_not_exists_task(self):
+        """Test close not exists task"""
+
+        changed_task = {
+            "execution_status": "completed"
+        }
+        response = self.client.put(
+            reverse('task_close',
+                    args=(12,)
+                    ),
+            data=json.dumps(changed_task),
+            content_type='application/json')
+
+        error = response.json()
+        self.assertEqual(response.status_code, 500)
+        self.assertEqual(error['detail'], 'object does not exists')
+
+
     def test_filter_by_names(self):
         """Filter the tasks by status"""
         filtered_by_name = f'{reverse("tasks")}?task_name=task_t'
