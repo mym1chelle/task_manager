@@ -24,7 +24,7 @@ jobs:
           pip install --upgrade pip
           pip install poetry
           make install
-      - name: Run linter and pytest
+      - name: Run linter and Django tests
         run: |
           make lint
       - name: Test & publish code coverage
